@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="img-container">
+        <img src="/images/back.png" alt="" class="arrowB">
+        <div class="img-box">
+            <div class="row1"> 
+                <span><img src="/images/image-1.png" class="image"></span>
+                <span><img src="/images/image-2.png" class="image"></span>
+                <span><img src="/images/image-3.png" class="image"></span>
+            </div>
+            <div class="row2">
+                <span><img src="/images/image-4.png" class="image"></span>
+                <span><img src="/images/image-5.png" class="image"></span>
+                <span><img src="/images/image-6.png" class="image"></span>
+            </div>
+        </div>
+        <img src="/images/next.png" alt="" class="arrowF">
+    </div>
+        
+    <script>
+        const scrollBox = document.querySelector('.img-box');
+        const back = document.querySelector('.arrowB');
+        const forward = document.querySelector('.arrowF');
+        
+        scrollBox.addEventListener('wheel',(evt)=>{
+            evt.preventDefault();
+            scrollBox.scrollLeft += evt.deltaY;
+            scrollBox.style.scrollBehavior = 'auto';
+        });
+
+        back.addEventListener('click',()=>{
+            scrollBox.style.scrollBehavior = 'smooth';
+            scrollBox.scrollLeft -= 900;
+        })
+        forward.addEventListener('click',()=>{
+            scrollBox.style.scrollBehavior = 'smooth';
+            scrollBox.scrollLeft += 900;
+        })
+    </script>
+</body>
+</html>
